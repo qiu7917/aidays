@@ -304,7 +304,7 @@ header {
                 z-index: 200;
 
                 @include m.tab {
-                    right: -52px;
+                    // right: -52px;
                 }
 
                 &.is-hidden {
@@ -1453,7 +1453,7 @@ footer {
             pointer-events: none;
 
             @include m.tab {
-                right: -25px;
+                right: -85px;
             }
 
             &.is-show {
