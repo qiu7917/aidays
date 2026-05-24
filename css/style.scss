@@ -295,9 +295,10 @@ header {
             .right-scroll {
                 pointer-events: auto;
                 position: fixed;
-                right: -65px;
+                right: -150px;
                 top: 80%;
                 width: 160px;
+                height: 160px;
                 transition: opacity 0.7s ease;
                 opacity: 1;
                 z-index: 200;
@@ -313,6 +314,7 @@ header {
 
                 .scroll-text {
                     transform: rotate(90deg);
+                    transform-origin: 0 0;
                     position: relative;
                     font-family: $fontHead-en;
                     font-size: 14px;
@@ -1441,9 +1443,10 @@ footer {
         .to-top {
             pointer-events: auto;
             position: absolute;
-            right: -35px;
+            right: -97px;
             bottom: 10%;
             width: 104px;
+            height: 110px;
             transition: opacity 0.8s ease;
             text-align: right;
             opacity: 0;
@@ -1460,6 +1463,7 @@ footer {
 
             .to-top-btn {
                 transform: rotate(90deg);
+                transform-origin: 0 0;
                 position: relative;
                 font-family: $fontHead-en;
                 font-size: 14px;
