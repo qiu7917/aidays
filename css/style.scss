@@ -294,14 +294,18 @@ header {
 
             .right-scroll {
                 pointer-events: auto;
-                position: fixed;
+                position: absolute;
                 right: -150px;
-                bottom: 18%;
+                bottom: 200px;
                 width: 160px;
                 height: 160px;
                 transition: opacity 0.7s ease;
                 opacity: 1;
                 z-index: 200;
+
+                @include m.tab {
+                    bottom: 300px;
+                }
 
                 &.is-hidden {
                     opacity: 0;
