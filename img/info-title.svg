@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="367.194" height="141.977" viewBox="0 0 367.194 141.977">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_53" data-name="長方形 53" width="367.194" height="101.976" fill="none"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#eb0012"/>
+      <stop offset="0.158" stop-color="#f669ac"/>
+      <stop offset="0.345" stop-color="#ff0"/>
+      <stop offset="0.562" stop-color="#8fcd10"/>
+      <stop offset="0.739" stop-color="#21b4e0"/>
+      <stop offset="0.916" stop-color="#172a88"/>
+      <stop offset="1" stop-color="#036eb8"/>
+    </linearGradient>
+  </defs>
+  <g id="グループ_72924" data-name="グループ 72924" transform="translate(-250 -6163)">
+    <g id="グループ_71" data-name="グループ 71" transform="translate(250 6163)">
+      <rect id="長方形_52" data-name="長方形 52" width="24.004" height="96.355" transform="translate(0 2.941)"/>
+      <path id="パス_144" data-name="パス 144" d="M122.474,98.177H98.314L51.089,29.735V98.177H28.577V1.823H53.914L99.962,69.089V1.823h22.513Z" transform="translate(17.548 1.119)"/>
+      <path id="パス_145" data-name="パス 145" d="M182.673,18.835H124.7V40.994h50.754V57.729H124.7v40.4h-24V1.9h81.973Z" transform="translate(61.835 1.168)"/>
+      <g id="グループ_72" data-name="グループ 72" transform="translate(0 0)">
+        <g id="グループ_71-2" data-name="グループ 71" clip-path="url(#clip-path)">
+          <path id="パス_146" data-name="パス 146" d="M214.284,101.976q-24.787,0-37.888-11.244Q158.823,76.94,158.825,50.988q0-26.475,17.571-39.745Q189.5,0,214.284,0t37.888,11.244q17.492,13.27,17.493,39.745,0,25.952-17.493,39.745-13.1,11.244-37.888,11.244M237.112,76.09q8.392-8.825,8.393-25.1,0-16.212-8.432-25.07t-22.789-8.858q-14.355,0-22.905,8.826t-8.55,25.1q0,16.277,8.55,25.1t22.905,8.824q14.357,0,22.828-8.824" transform="translate(97.528 0)"/>
+        </g>
+      </g>
+    </g>
+    <rect id="長方形_32352" data-name="長方形 32352" width="20" height="366.966" transform="translate(616.966 6284.977) rotate(90)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

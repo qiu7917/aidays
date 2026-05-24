@@ -1,0 +1,1503 @@
+@charset "UTF-8";
+@use 'mixin' as m;
+
+$color-wh: #FFFFFF;
+$color-bk: #000000;
+$color-gr: #EDEDED;
+$color-gradation: linear-gradient(to right, #eb0012 0%, #f669ac 15.76%, #ff0 34.48%, #8fcd10 56.16%, #21b4e0 73.89%, #172a88 91.63%, #036eb8 100%);
+
+
+$fontHead-jp: "Zen Old Mincho", serif;
+$fontText: 'Noto Sans', 'Noto Sans JP', sans-serif;
+$fontHead-en: "Roboto", sans-serif;
+
+html {
+    font-size: 100%;
+    color: $color-bk;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: $color-wh;
+    scroll-behavior: smooth;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+p {
+    color: $color-bk;
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: $color-bk;
+    display: inline-block;
+    font-weight: 600;
+}
+
+li,
+dt,
+dd {
+    color: $color-bk;
+    font-weight: 600;
+
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1000px) {
+        padding: 0 16px;
+    }
+}
+
+.inner {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1000px) {
+        padding: 0 16px;
+    }
+}
+
+.fadein {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.cta {
+    a {
+        display: inline;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        padding: 10px 10px 10px 20px;
+
+        &::before {
+            content: "";
+            height: 56px;
+            width: 215px;
+            background: url(../img/cta-bg.png);
+            background-size: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-150%, -50%);
+            opacity: 0;
+            transition: all 0.2s;
+        }
+
+        &:hover {
+            &::before {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+
+            .cta-img::after {
+                opacity: 0;
+            }
+
+            .circle::before {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .cta-img {
+            position: relative;
+            transition: all 0.2s;
+
+            img {
+                width: 141px;
+                padding-bottom: 10px;
+            }
+
+            &::after {
+                content: "";
+                height: 4px;
+                width: 100%;
+                background-color: $color-bk;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                opacity: 1;
+                transition: all 0.2s;
+            }
+        }
+
+        .circle {
+            height: 36px;
+            width: 36px;
+            background-color: $color-bk;
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.2s;
+
+            &::before {
+                content: "";
+                background: url(../img/arrow.png);
+                background-size: contain;
+                height: 20px;
+                width: 20px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-85%, -15%);
+                transition: all 0.2s;
+            }
+        }
+    }
+}
+
+
+.br-tab {
+    display: none;
+
+    @include m.tab {
+        display: block;
+    }
+}
+
+.br-sp {
+    display: none;
+
+    @include m.sp {
+        display: block;
+    }
+}
+
+
+
+// ----- header ------------------
+
+header {
+    .container {
+        .fixed-btn-wrapper {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100vh;
+            width: 100%;
+            max-width: 1440px;
+            z-index: 100;
+            pointer-events: none;
+
+            @include m.tab {
+                height: 981px;
+            }
+
+            .left-tabs {
+                pointer-events: auto;
+                position: absolute;
+                left: 7px;
+                bottom: 200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 300px;
+                width: 20px;
+
+                @include m.tab {
+                    flex-direction: row;
+                    align-items: flex-start;
+                    width: 100%;
+                    justify-content: flex-start;
+                    gap: 10%;
+                    left: 0;
+                    bottom: auto;
+                    top: 10px;
+                    padding-left: 16px;
+                }
+
+                .tab-0707,
+                .tab-0708 {
+                    transform: rotate(90deg);
+                    text-decoration: underline;
+                    position: relative;
+                    font-family: $fontHead-en;
+                    font-size: 14px;
+                    letter-spacing: 0.05em;
+                    transition: all 0.5s;
+
+                    @include m.tab {
+                        transform: rotate(0);
+                        font-size: 12px;
+                        letter-spacing: -0.05em;
+                    }
+
+                    &::before {
+                        content: "";
+                        height: 1px;
+                        width: 64px;
+                        background-color: $color-bk;
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+
+                        @include m.tab {
+                            display: none;
+                        }
+                    }
+
+                    &::after {
+                        content: "";
+                        height: 1px;
+                        width: 14px;
+                        background-color: $color-bk;
+                        position: absolute;
+                        right: -2px;
+                        top: 77%;
+                        transform: rotate(135deg);
+
+                        @include m.tab {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+                        color: rgba($color-bk, 0.7);
+
+                        &::before,
+                        &::after {
+                            background-color: rgba($color-bk, 0.7);
+                        }
+                    }
+                }
+
+                .tab-0707 {
+                    width: 247px;
+
+                    @include m.tab {
+                        width: auto;
+                    }
+                }
+
+                .tab-0708 {
+                    width: 317px;
+
+                    @include m.tab {
+                        width: auto;
+                    }
+                }
+            }
+
+            .right-scroll {
+                pointer-events: auto;
+                position: fixed;
+                right: -65px;
+                top: 80%;
+                width: 160px;
+                transition: opacity 0.7s ease;
+                opacity: 1;
+                z-index: 200;
+
+                @include m.tab {
+                    right: -52px;
+                }
+
+                &.is-hidden {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+
+                .scroll-text {
+                    transform: rotate(90deg);
+                    position: relative;
+                    font-family: $fontHead-en;
+                    font-size: 14px;
+                    width: 160px;
+                    display: block;
+
+                    &::after {
+                        content: "";
+                        height: 3px;
+                        width: 94px;
+                        background: linear-gradient(to left, #eb0012 0%, #f669ac 15.76%, #ff0 34.48%, #8fcd10 56.16%, #21b4e0 73.89%, #172a88 91.63%, #036eb8 100%);
+                        background-size: 200% 100%;
+                        position: absolute;
+                        top: 35%;
+                        right: 0;
+                        animation: gradientSlide 5s linear infinite;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes gradientSlide {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+
+// ----- fv ------------------
+.fv {
+    .container {
+        position: relative;
+
+        h1 {
+            img {
+                width: 100%;
+            }
+
+            .fv-pc {
+                display: block;
+
+                @include m.tab {
+                    display: none;
+                }
+            }
+
+            .fv-sp {
+                display: none;
+                padding-bottom: 40%;
+
+                @include m.tab {
+                    display: block;
+                }
+            }
+        }
+
+
+        @include m.tab {
+            height: 100%;
+        }
+
+        .cta {
+            position: absolute;
+            top: 6px;
+            right: 20px;
+
+            @include m.tab {
+                top: 80%;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+
+// ----- about ------------------
+.about {
+    padding-top: 177px;
+    padding-bottom: 90px;
+    background-color: $color-gr;
+    position: relative;
+    margin-bottom: 100px;
+
+    @include m.tab {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        margin-bottom: 60px;
+
+    }
+
+    &::before {
+        content: "";
+        background: url(../img/aboutbg-l.png);
+        background-size: contain;
+        height: 63%;
+        aspect-ratio: 392 / 825;
+        position: absolute;
+        top: 16px;
+        left: 0;
+    }
+
+    &::after {
+        content: "";
+        background: url(../img/aboutbg-r.png);
+        background-size: contain;
+        height: 81%;
+        aspect-ratio: 483 / 1107;
+        position: absolute;
+        bottom: 16px;
+        right: 0;
+    }
+
+    .inner {
+        .about-title {
+            max-width: 562px;
+            margin-bottom: 50px;
+
+            @include m.tab {
+                max-width: 272px;
+                margin-bottom: 40px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .about-text-wrapper {
+            margin-bottom: 60px;
+
+            .about-text {
+                font-family: $fontHead-jp;
+                font-size: 24px;
+                line-height: 65px;
+                font-weight: 500;
+
+                @include m.tab {
+                    font-size: 20px;
+                    line-height: 40px;
+                }
+
+            }
+        }
+
+        .about-by {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            gap: 30px;
+
+            @include m.tab {
+                gap: 20px;
+            }
+
+            .about-by-by {
+                font-family: $fontHead-en;
+                font-size: 34px;
+
+                @include m.tab {
+                    font-size: 24px;
+                }
+            }
+
+            .about-by-img {
+                width: 208px;
+
+                @include m.tab {
+                    width: 154px;
+                    padding-right: 20px;
+
+                }
+            }
+        }
+    }
+}
+
+// ----- timetable-head ------------------
+.timetable-head {
+    background-color: $color-bk;
+    padding-top: 60px;
+    padding-bottom: 52px;
+    text-align: center;
+
+    .inner {
+        .timetable-title {
+            margin-bottom: 36px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .tietable-schedule {
+            .timetabel-day-list {
+                display: flex;
+                width: 100%;
+
+                @include m.tab {
+                    justify-content: center;
+                }
+
+                @include m.sp {
+                    flex-direction: column;
+                    gap: 13px;
+                    padding-left: 50px;
+
+                }
+
+                .timetable-day {
+                    text-align: left;
+
+                    a {
+                        transition: all 0.3s;
+
+                        &:hover {
+                            opacity: 0.7;
+                        }
+
+                        .day {
+                            font-family: $fontHead-en;
+                            color: $color-wh;
+                            font-size: 20px;
+
+                            @include m.tab {
+                                font-size: 10px;
+                            }
+                        }
+
+                        .timetable-link {
+                            display: flex;
+                            gap: 10px;
+                            align-items: flex-end;
+
+                            img {
+                                height: 36px;
+                                width: 77px;
+
+                                @include m.tab {
+                                    height: 16px;
+                                    width: 35px;
+
+                                }
+                            }
+
+                            .day-lead {
+                                font-family: $fontText;
+                                color: $color-wh;
+                                font-size: 30px;
+                                text-decoration: underline;
+                                font-weight: 600;
+                                letter-spacing: -0.05em;
+
+                                @include m.tab {
+                                    font-size: 13px;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .timetable-day1 {
+                padding-right: 100px;
+                border-right: 2px solid $color-wh;
+
+                @include m.sp {
+                    padding-right: 0;
+                    border: none;
+                }
+            }
+
+            .timetable-day2 {
+                padding-left: 70px;
+
+                @include m.sp {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}
+
+
+// ----- timetable-content day1------------------
+.timetable-content {
+    .day-head {
+        border-bottom: 4px solid $color-bk;
+
+        .inner {
+            padding: 23px 40px;
+            display: flex;
+            gap: 50px;
+            align-items: center;
+
+            @include m.tab {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+
+            }
+
+            .day-head-schedule {
+                @include m.tab {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    grid-template-rows: repeat(2, 1fr);
+                    grid-column-gap: 0px;
+                    grid-row-gap: 0px;
+                    max-width: 332px;
+                    width: 100%;
+
+                    &>*:nth-child(2) {
+                        border-right: 1px solid $color-bk;
+                    }
+                }
+
+                .dayhead-day {
+                    font-family: $fontHead-en;
+                    font-size: 20px;
+                    margin-bottom: 10px;
+
+                    @include m.tab {
+                        grid-area: 1 / 2 / 2 / 3;
+                        padding-left: 18px;
+                        margin-bottom: 0;
+
+                    }
+                }
+
+                .dayhead-date {
+                    width: 130px;
+                    margin-bottom: 10px;
+
+                    @include m.tab {
+                        grid-area: 1 / 1 / 3 / 2;
+                        padding-right: 18px;
+                        margin-bottom: 0;
+                        align-self: center;
+                        border-right: 1px solid $color-bk;
+                    }
+                }
+
+                .dayhead-time {
+                    font-family: $fontHead-en;
+                    font-size: 20px;
+
+                    @include m.tab {
+                        grid-area: 2 / 2 / 3 / 3;
+                        padding-left: 18px;
+
+                    }
+                }
+            }
+
+            .dayhead-title {
+                font-family: $fontText;
+                font-size: 50px;
+
+                @include m.tab {
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+
+    .timetable {
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #eb0012 0%, #f669ac 15.76%, #ff0 34.48%, #8fcd10 56.16%, #21b4e0 73.89%, #172a88 91.63%, #036eb8 100%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .inner {
+            background-color: $color-wh;
+            border-left: 2px solid $color-bk;
+            border-right: 2px solid $color-bk;
+
+            @media screen and (max-width: 1000px) {
+                padding: 0;
+            }
+        }
+
+        .timetable-inner {
+            @include m.tab {
+                margin: 0 16px;
+            }
+        }
+
+        .timetable-inner-session {
+            @include m.tab {
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid $color-bk;
+            }
+        }
+
+        .day-schedule {
+            .schedule-content {
+                padding: 20px;
+                border-bottom: 1px solid $color-bk;
+                display: flex;
+
+                @media screen and (max-width: 1000px) {
+                    // padding: 20px 10px;
+                }
+
+                @include m.tab {
+                    flex-direction: column;
+                    gap: 10px;
+                    padding: 20px 10px;
+
+                }
+
+                .schedule-time {
+                    width: 183px;
+
+                    @include m.tab {
+                        width: 100%;
+                    }
+
+                    .time {
+                        font-family: $fontHead-en;
+                        font-size: 20px;
+                        line-height: 35px;
+
+                        @include m.tab {
+                            line-height: 24px;
+                        }
+                    }
+                }
+
+                .schedule-info {
+                    width: calc(100% - 183px);
+
+                    @include m.tab {
+                        width: 100%;
+                    }
+
+                    .schedule-info-category,
+                    .schedule-info-lead,
+                    .speaker-guest,
+                    .schedule-info-theme,
+                    .schedule-info-themeBK,
+                    .speaker-company {
+                        font-family: $fontHead-jp;
+                        font-weight: 500;
+                    }
+
+                    .speaker-name,
+                    .speaker-affiliation,
+                    .speaker-note {
+                        font-family: $fontText;
+                    }
+
+                    .schedule-info-category {
+                        font-size: 20px;
+                        margin-bottom: 4px;
+
+                        @include m.tab {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .schedule-info-lead {
+                        font-size: 24px;
+
+                        @include m.tab {
+                            font-size: 18px;
+                        }
+                    }
+
+                    .speaker-list {
+                        .speaker-item {
+                            .speaker-guest {
+                                font-size: 20px;
+                                margin-bottom: 20px;
+
+                                @include m.tab {
+                                    font-size: 15px;
+                                    margin-bottom: 10px;
+
+                                }
+                            }
+
+                            .speaker {
+                                display: flex;
+                                align-items: flex-start;
+                                gap: 20px;
+
+                                @include m.tab {
+                                    gap: 10px;
+                                }
+
+                                .speaker-img {
+                                    height: 80px;
+                                    width: 80px;
+                                }
+
+                                .speaker-img70 {
+                                    @include m.tab {
+                                        height: 70px;
+                                        width: 70px;
+                                    }
+                                }
+
+                                .speaker-info {
+                                    .speaker-name {
+                                        font-size: 24px;
+
+                                        @include m.tab {
+                                            font-size: 20px;
+                                        }
+                                    }
+
+                                    .speaker-affiliation {
+                                        font-size: 16px;
+
+                                        @include m.tab {
+                                            font-size: 12px;
+                                        }
+                                    }
+
+                                    .speaker-note-sp {
+                                        font-size: 10px;
+                                        font-weight: 500;
+                                        margin-top: 8px;
+                                        // display: none;
+
+                                        @include m.tab {
+                                            display: block;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .speaker-note {
+                                font-size: 10px;
+                                font-weight: 500;
+                                margin-top: 10px;
+
+                                @include m.tab {
+                                    display: none;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            .day1-time1315 {
+                .schedule-info {
+                    .schedule-info-lead {
+                        margin-bottom: 37px;
+
+                        @include m.tab {
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    .speaker-list {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-template-rows: repeat(3, auto);
+                        grid-row-gap: 30px;
+
+                        @include m.tab {
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            grid-template-rows: repeat(4, auto);
+                            grid-row-gap: 10px;
+                        }
+
+                        .speaker-item {
+                            &:first-child {
+                                grid-area: 1 / 1 / 2 / 2;
+
+                                @include m.tab {
+                                    grid-area: 1 / 1 / 2 / 2;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                grid-area: 1 / 2 / 2 / 3;
+
+                                @include m.tab {
+                                    grid-area: 2 / 1 / 3 / 2;
+                                    margin-bottom: 10px;
+                                }
+                            }
+
+                            &:nth-child(3) {
+                                grid-area: 2 / 1 / 3 / 3;
+
+                                @include m.tab {
+                                    grid-area: 3 / 1 / 4 / 2;
+                                }
+                            }
+
+                            &:nth-child(4) {
+                                grid-area: 3 / 1 / 4 / 3;
+
+                                @include m.tab {
+                                    grid-area: 4 / 1 / 5 / 2;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .day1-time1410 {
+                border-bottom: none;
+
+                .schedule-info {
+                    .schedule-info-lead {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+
+            .day1-session-hall {
+                border-top: 1px solid $color-bk;
+
+                .schedule-content {
+                    display: flex;
+                    background-color: $color-gr;
+                    padding: 0;
+                    border-bottom: none;
+
+                    @include m.tab {
+                        flex-direction: row;
+                        gap: 0;
+                    }
+
+                    .hallA,
+                    .hallB {
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-family: $fontHead-jp;
+                        font-size: 24px;
+                        font-weight: 500;
+                        padding: 20px;
+
+                        @include m.tab {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .hallA {
+                        border-right: 1px solid $color-bk;
+                    }
+                }
+            }
+
+            .day1-session {
+                display: flex;
+
+                .day1-schedule-hallA,
+                .day1-schedule-hallB {
+                    width: 50%;
+
+                    .schedule-content {
+                        display: block;
+
+                        @include m.tab {
+                            padding: 20px 10px 20px 16px;
+                        }
+                    }
+
+                    .schedule-time,
+                    .schedule-info {
+                        width: 100%;
+                    }
+
+                    .schedule-time {
+                        display: flex;
+                        align-items: center;
+                        gap: 62px;
+                        margin-bottom: 10px;
+
+                        @include m.tab {
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 10px;
+                        }
+
+                        .time {
+                            @include m.tab {
+                                font-size: 18px;
+                                line-height: 24px;
+                            }
+                        }
+
+                        .session {
+                            font-family: $fontHead-jp;
+                            background-color: $color-bk;
+                            color: $color-wh;
+                            font-weight: 500;
+                            padding: 3px 17px;
+                            text-align: center;
+
+                            @include m.tab {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                    .schedule-info {
+                        .schedule-info-lead {
+                            font-size: 18px;
+                            margin-bottom: 10px;
+
+                            @include m.tab {
+                                font-size: 14px;
+                            }
+                        }
+
+                        .speaker-list {
+                            .speaker-item {
+                                margin-bottom: 10px;
+
+                                .speaker {
+                                    .speaker-img {
+                                        height: 60px;
+                                        width: 60px;
+
+                                        @include m.tab {
+                                            height: 50px;
+                                            width: 50px;
+                                        }
+                                    }
+
+                                    .speaker-info {
+                                        .speaker-name {
+                                            font-size: 16px;
+
+                                            @include m.tab {
+                                                font-size: 14px;
+                                            }
+                                        }
+
+                                        .speaker-affiliation {
+                                            font-size: 12px;
+                                            font-weight: 500;
+
+                                            @include m.tab {
+                                                font-size: 10px;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .moderator {
+                                    font-size: 12px;
+                                    margin: 20px 0 10px;
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .day1-schedule-hallA {
+                    .schedule-content {
+                        border-right: 1px solid $color-bk;
+                    }
+
+                    .day1-time1655-hallA {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            .day1-time1750 {
+                border-top: 1px solid $color-bk;
+                border-bottom: none;
+
+                @include m.tab {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}
+
+
+// ----- timetable-note ------------------
+.timetable-note {
+    padding: 20px 0 83px;
+    border-top: 4px solid $color-bk;
+    border-bottom: 2px solid $color-bk;
+
+    .inner {
+        .timetable-note-text {
+            font-family: $fontText;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 18px;
+        }
+    }
+}
+
+.timetable-note-day2 {
+    margin-bottom: 100px;
+}
+
+
+// ----- timetable-content day2 ------------------
+.day2 {
+    .timetable {
+        &::before {
+            background: linear-gradient(to bottom, #eb0012 0%, #f669ac 15.76%, #ff0 34.48%, #8fcd10 56.16%, #21b4e0 73.89%, #172a88 91.63%, #036eb8 100%);
+        }
+
+        .day-schedule {
+            .inner {
+                .schedule-content {
+                    .schedule-info {
+                        .schedule-info-theme-wrapper {
+                            display: flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            gap: 10px;
+                            margin-bottom: 10px;
+
+                            .schedule-info-theme {
+                                font-size: 18px;
+                            }
+
+                            .schedule-info-themeBK {
+                                background-color: $color-bk;
+                                color: $color-wh;
+                                padding: 3px 18px;
+
+                            }
+                        }
+
+                        .schedule-info-lead {
+                            font-size: 20px;
+                            margin-bottom: 20px;
+
+                            @include m.tab {
+                                margin-bottom: 30px;
+                            }
+                        }
+
+                        .speaker-list {
+                            display: flex;
+                            gap: 40px;
+
+                            @include m.tab {
+                                flex-direction: column;
+                            }
+
+                            .speaker-item {
+                                width: 320px;
+
+                                .speaker-company {
+                                    margin-bottom: 10px;
+                                }
+
+                                .speaker {
+                                    .speaker-img {
+                                        height: 80px;
+                                        width: 80px;
+                                    }
+
+                                    .speaker-name {
+                                        font-size: 20px;
+                                        margin-bottom: 10px;
+                                    }
+
+                                    .speaker-affiliation {
+                                        font-size: 16px;
+                                        font-weight: 500;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .day2-time1800 {
+                    border-bottom: none;
+
+                    .schedule-info {
+                        .schedule-info-lead {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// ----- info ------------------
+.info {
+    background-color: $color-wh;
+    padding-bottom: 90px;
+    position: relative;
+    z-index: 101;
+
+    @include m.tab {
+        padding-bottom: 60px;
+    }
+
+    .inner {
+        .info-title {
+            margin-bottom: 62px;
+
+            img {
+                height: 142px;
+                width: 367px;
+
+                @include m.tab {
+                    height: 69px;
+                    width: 178px;
+                }
+            }
+        }
+
+        .info-wrapper {
+            padding: 0 40px;
+
+            @include m.tab {
+                padding: 0;
+            }
+
+            .info-content {
+                display: flex;
+                flex-wrap: wrap;
+                font-family: $fontText;
+                font-size: 24px;
+                line-height: 46px;
+                margin-bottom: 50px;
+
+                @include m.tab {
+                    flex-direction: column;
+
+                }
+
+                dt {
+                    width: 285px;
+                    margin-bottom: 30px;
+
+                    @include m.tab {
+                        width: 100%;
+                        margin-bottom: 0;
+                        font-size: 16px;
+                    }
+                }
+
+                dd {
+                    width: calc(100% - 285px);
+                    margin-bottom: 30px;
+
+                    @include m.tab {
+                        width: 100%;
+                    }
+
+                    .sp-break {
+                        display: none;
+
+                        @include m.tab {
+                            display: block;
+                            margin-bottom: 4em;
+                        }
+                    }
+
+                    span {
+                        font-size: 10px;
+                        font-weight: 500;
+                        line-height: 18px;
+                    }
+
+                    &:nth-child(4) {
+                        margin-bottom: 60px;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .info-text {
+                font-family: $fontText;
+                font-size: 20px;
+                line-height: 54px;
+                font-weight: 500;
+                letter-spacing: -0.07em;
+                margin-bottom: 123px;
+
+                @include m.tab {
+                    font-size: 16px;
+                    line-height: 30px;
+                    margin-bottom: 100px;
+
+                }
+            }
+        }
+
+        .cta {
+            width: max-content;
+            margin: 0 auto;
+
+            a {
+                padding: 20px 50px;
+
+                @include m.tab {
+                    padding: 17px 30px 10px 30px;
+                }
+
+                &::before {
+                    height: 111px;
+                    width: 396px;
+                    background: linear-gradient(100deg, #eb0012 0%, #f669ac 15.76%, #ff0 34.48%, #8fcd10 56.16%, #21b4e0 73.89%, #172a88 91.63%, #036eb8 100%);
+
+                    @include m.tab {
+                        background: url(../img/cta-bg.png);
+                        background-size: cover;
+                        height: 66px;
+                        width: 235px;
+                    }
+                }
+
+                .cta-img {
+                    img {
+                        width: 225px;
+
+                        @include m.tab {
+                            width: 142px;
+                        }
+                    }
+
+                    &::after {
+                        bottom: -4px;
+                    }
+                }
+
+                .circle {
+                    height: 60px;
+                    width: 60px;
+
+                    @include m.tab {
+                        height: 36px;
+                        width: 36px;
+                    }
+
+                    &::before {
+                        height: 31px;
+                        width: 31px;
+
+                        @include m.tab {
+                            height: 17px;
+                            width: 17px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+// ----- footer ------------------
+footer {
+    background-color: $color-gr;
+    text-align: center;
+    padding-top: 97px;
+    padding-bottom: 41px;
+    position: relative;
+    z-index: 101;
+
+    .footer-img {
+        height: 122px;
+        width: 165px;
+        margin-bottom: 60px;
+    }
+
+    .copy-right {
+        font-family: $fontHead-en;
+        font-size: 20px;
+    }
+
+
+    .fixed-btn-wrapper {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 100vh;
+        width: 100%;
+        max-width: 1440px;
+        z-index: 100;
+        pointer-events: none;
+
+        .to-top {
+            pointer-events: auto;
+            position: absolute;
+            right: -35px;
+            bottom: 10%;
+            width: 104px;
+            transition: opacity 0.8s ease;
+            text-align: right;
+            opacity: 0;
+            pointer-events: none;
+
+            @include m.tab {
+                right: -25px;
+            }
+
+            &.is-show {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .to-top-btn {
+                transform: rotate(90deg);
+                position: relative;
+                font-family: $fontHead-en;
+                font-size: 14px;
+                text-decoration: underline;
+                width: 104px;
+                display: block;
+                transition: all 0.5s;
+
+                &::before {
+                    content: "";
+                    height: 1px;
+                    width: 24px;
+                    background-color: $color-bk;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                }
+
+                &::after {
+                    content: "";
+                    height: 1px;
+                    width: 10px;
+                    background-color: $color-bk;
+                    position: absolute;
+                    left: -2px;
+                    top: 35%;
+                    transform: rotate(135deg);
+                }
+
+                &:hover {
+                    color: rgba($color-bk, 0.7);
+
+                    &::before,
+                    &::after {
+                        background-color: rgba($color-bk, 0.7);
+                    }
+                }
+            }
+        }
+    }
+}
