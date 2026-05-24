@@ -272,7 +272,7 @@ header .container .fixed-btn-wrapper .right-scroll {
   pointer-events: auto;
   position: fixed;
   right: -150px;
-  top: 80%;
+  bottom: 18%;
   width: 160px;
   height: 160px;
   transition: opacity 0.7s ease;
